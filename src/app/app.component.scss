@@ -1,0 +1,8 @@
+@import '../styles/variables';
+
+.content {
+  max-width: 576px;
+  margin: auto;
+  background: $white;
+  border-radius: 0.3rem;
+}

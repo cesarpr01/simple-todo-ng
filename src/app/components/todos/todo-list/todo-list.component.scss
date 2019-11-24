@@ -1,0 +1,95 @@
+@import '../../../../styles/variables';
+
+@mixin border($color) {
+  border: 1px solid $color;
+}
+
+@mixin listItem($border-color) {
+  box-shadow: 0 1px 2px rgba(#000, 0.2);
+
+  @include border($border-color);
+}
+
+@mixin todo-list($color) {
+  background-color: $color;
+
+  & .todo-list li {
+    @include listItem(darken($color, 20%));
+  }
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  word-wrap: break-word;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+
+  &.todo {
+    @include border($color-primary-200);
+  }
+
+  &.done {
+    @include border($color-secondary-200);
+  }
+
+  &-header {
+    padding: 0.75rem 1.25rem;
+    background-color: $gray-100;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 0.25rem 0.25rem 0 0;
+  }
+
+  &-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+
+    &.todo {
+      @include todo-list($color-primary-200);
+    }
+
+    &.done {
+      @include todo-list($color-secondary-200);
+    }
+  }
+}
+
+.todo-list {
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 3px;
+    background: white;
+    color: $gray-700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $gray-100;
+    }
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color: inherit;
+  cursor: pointer
+}
+
+.remove-icon {
+  width: 14px;
+  height: 20px;
+  padding-right: 0.5rem;
+  color: $red;
+  opacity: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

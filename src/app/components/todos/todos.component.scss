@@ -1,0 +1,30 @@
+@import '../../../styles/mixins';
+@import '../../../styles/variables';
+
+.container {
+  padding: spacing(5);
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.add-todo-form {
+  display: flex;
+}
+
+.add-todo {
+  padding: 0.8125rem;
+  border: 1px solid $gray-200;
+  border-radius: 5px;
+  margin-bottom: spacing(1);
+  font-size: inherit;
+  width: 100%;
+
+  &:focus {
+    outline-color: $color-primary;
+  }
+
+  &::placeholder {
+    font-style: italic;
+    color: $gray-200;
+  }
+}

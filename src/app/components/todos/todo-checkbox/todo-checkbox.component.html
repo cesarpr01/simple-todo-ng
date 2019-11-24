@@ -1,0 +1,6 @@
+<div class="todo-checkbox">
+  <input type="checkbox" class="todo-checkbox-input" [attr.id]="id" [checked]="checked" (change)="change($event.target.checked)">
+  <label class="todo-checkbox-label" [for]="id">
+    <ng-content></ng-content>
+  </label>
+</div>

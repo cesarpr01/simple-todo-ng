@@ -1,0 +1,22 @@
+<section class="container">
+  <form class="add-todo-form" (submit)="addTodo()">
+    <input name="add-todo" type="text" placeholder="add todo" class="add-todo" [(ngModel)]="todoDescription" />
+    <input type="submit" style="display:none" />
+  </form>
+  <app-todo-list
+    headerTitle="To do:"
+    listRole="todo"
+    [todos]="todo | async"
+    (todoChecked)="todoChecked($event)"
+    (deleteTodo)="deleteTodo($event)"
+    (deleteAll)="deleteAll('incomplete')"
+  ></app-todo-list>
+  <app-todo-list
+    headerTitle="Done:"
+    listRole="done"
+    [todos]="done | async"
+    (todoChecked)="todoChecked($event)"
+    (deleteTodo)="deleteTodo($event)"
+    (deleteAll)="deleteAll('complete')"
+  ></app-todo-list>
+</section>

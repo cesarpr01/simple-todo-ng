@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.footer {
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  min-height: spacing(5);
+  align-items: center;
+  border-top: 1px solid $gray-200;
+  color: $gray-600;
+}
+
+.heart {
+  color: $red;
+  font-size: $font-size-large;
+}
